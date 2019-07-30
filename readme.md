@@ -19,6 +19,9 @@ This app provides read-only web pages to the following Play Cricket stats:
 You can get the leage & team IDs from the Play Cricket website by looking at the URL.
 
 ## Screenshots
-[](https://i.imgur.com/sHF3DpW.png)
-[](https://i.imgur.com/tQZHFHV.png)
-[](https://i.imgur.com/l9fJ6Nw.png)
+#### Recent Matches
+![](https://i.imgur.com/sHF3DpW.png)
+#### Upcoming Matches
+![](https://i.imgur.com/tQZHFHV.png)
+#### League Table
+![](https://i.imgur.com/l9fJ6Nw.png)
