@@ -45,7 +45,7 @@ $matches = array_slice($matches, 0, 5);
 <?php
 if (count($matches) > 0):
     foreach ($matches as $match): ?>
-        <div class="mb-10">
+        <div>
             <div class="p-2 bg-gray-200 text-center text-gray-600 font-bold w-full">
                 <?= $match['league_name']; ?> - <?= $match['competition_name']; ?>
             </div>
