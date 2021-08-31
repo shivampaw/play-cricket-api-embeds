@@ -115,7 +115,7 @@ if (count($matches) > 0):
     <?php endforeach;
 else: ?>
     <div class="w-full bg-gray-200 text-gray-600 uppercase font-bold p-5 text-center">
-        No Upcoming Fixtures
+        No Recent Results
     </div>
 <?php endif ?>
 
