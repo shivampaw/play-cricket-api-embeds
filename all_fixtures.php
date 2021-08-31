@@ -60,7 +60,7 @@ if (count($matches) > 0):
                     </div>
                     <div class="w-2/5 text-center p-4 text-gray-800">
                         <h3 class="text-md md:text-lg lg:text-xl text-green-600 font-bold uppercase"><?= $match['away_club_name'] ?></h3>
-                        <p class="text-sm md:text-md lg:text-lg font-bold uppercase text-gray-400"><?= $match['home_team_name'] ?></p>
+                        <p class="text-sm md:text-md lg:text-lg font-bold uppercase text-gray-400"><?= $match['away_team_name'] ?></p>
                     </div>
                 </div>
             </div>
