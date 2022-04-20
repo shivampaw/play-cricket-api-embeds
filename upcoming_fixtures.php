@@ -76,7 +76,10 @@ $matches = array_filter($data, function ($match) {
                             <td colspan="5" style="text-align: center;">
                                 <p>
                                     Ground: <?php echo $match['ground_name']; ?><br />
-                                    Start Time: <?php echo $match['match_time']; ?>
+                                    Start Time: <?php echo $match['match_time']; ?><br />
+                                    <a class="text-blue-500" target="_blank" href="https://bronze.play-cricket.com/match_details?id=<?= $match['id'] ?>">
+                                        View on Play Cricket
+                                    </a>
                                 </p>
                             </td>
                         </tr>
