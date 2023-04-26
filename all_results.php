@@ -60,7 +60,7 @@ if (count($matches) > 0):
                     <div class="w-2/5 text-center p-4 text-gray-800">
                         <h3 class="text-base md:text-lg lg:text-xl text-green-600 font-bold uppercase"><?= $match['home_club_name'] ?></h3>
                         <p class="text-sm md:text-base lg:text-lg font-bold uppercase text-gray-400"><?= $match['home_team_name'] ?></p>
-                        <?php if (!in_array($match['result'], ['A', 'C']) || empty(get_innings($match, $match['home_team_id']))): ?>
+                        <?php if (!in_array($match['result'], ['A', 'C']) && !empty(get_innings($match, $match['home_team_id']))): ?>
                             <p class="text-sm md:text-base my-4 text-gray-600">
                                 <strong><?= get_innings($match, $match['home_team_id'])['runs'] ?></strong> for
                                 <strong><?= get_innings($match, $match['home_team_id'])['wickets'] ?></strong> after
@@ -79,7 +79,7 @@ if (count($matches) > 0):
                     <div class="w-2/5 text-center p-4 text-gray-800">
                         <h3 class="text-base md:text-lg lg:text-xl text-green-600 font-bold uppercase"><?= $match['away_club_name'] ?></h3>
                         <p class="text-sm md:text-base lg:text-lg font-bold uppercase text-gray-400"><?= $match['away_team_name'] ?></p>
-                        <?php if (!in_array($match['result'], ['A', 'C']) || empty(get_innings($match, $match['away_team_id']))): ?>
+                        <?php if (!in_array($match['result'], ['A', 'C']) && !empty(get_innings($match, $match['away_team_id']))): ?>
                             <p class="text-sm md:text-base my-4 text-gray-600">
                                 <strong><?= get_innings($match, $match['away_team_id'])['runs'] ?></strong> for
                                 <strong><?= get_innings($match, $match['away_team_id'])['wickets'] ?></strong> after
