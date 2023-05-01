@@ -27,7 +27,7 @@ $matches = array_filter($data, function ($match) {
     return true;
 });
 
-$matches = array_slice($matches, 0, 8);
+$matches = array_slice($matches, 0, 5);
 
 ?>
 <html>

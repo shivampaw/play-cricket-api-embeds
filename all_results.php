@@ -18,7 +18,7 @@ $matches = array_filter($data, function ($match) {
     return true;
 });
 
-$matches = array_slice(array_reverse($matches), 0, 4);
+$matches = array_slice(array_reverse($matches), 0, 5);
 
 function get_innings($match, $teamId)
 {
