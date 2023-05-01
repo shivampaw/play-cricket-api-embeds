@@ -31,7 +31,7 @@ function get_points($match, $teamId)
 {
     return array_values(array_filter($match['points'], function (array $points) use ($teamId) {
         return $points['team_id'] == $teamId;
-    }))[0];
+    }))[0] ?? [];
 }
 
 ?>
@@ -60,7 +60,7 @@ if (count($matches) > 0):
                     <div class="w-2/5 text-center p-4 text-gray-800">
                         <h3 class="text-base md:text-lg lg:text-xl text-green-600 font-bold uppercase"><?= $match['home_club_name'] ?></h3>
                         <p class="text-sm md:text-base lg:text-lg font-bold uppercase text-gray-400"><?= $match['home_team_name'] ?></p>
-                        <?php if (!in_array($match['result'], ['A', 'C']) && !empty(get_innings($match, $match['home_team_id']))): ?>
+                        <?php if (!in_array($match['result'], ['A', 'C', 'CON']) && !empty(get_innings($match, $match['home_team_id']))): ?>
                             <p class="text-sm md:text-base my-4 text-gray-600">
                                 <strong><?= get_innings($match, $match['home_team_id'])['runs'] ?></strong> for
                                 <strong><?= get_innings($match, $match['home_team_id'])['wickets'] ?></strong> after
@@ -70,7 +70,7 @@ if (count($matches) > 0):
                         <div class="my-4 bg-white rounded-full h-12 w-12 font-bold text-lg flex items-center justify-center mx-auto text-white
                             <?= $match['result_applied_to'] === '' ? 'bg-gray-500' : ($match['result_applied_to'] == $match['home_team_id'] ? 'bg-green-600' : 'bg-red-600') ?>"
                         >
-                            <?= get_points($match, $match['home_team_id'])['game_points'] + get_points($match, $match['home_team_id'])['bonus_points_together'] ?>
+                            <?= (get_points($match, $match['home_team_id'])['game_points'] ?? 0) + (get_points($match, $match['home_team_id'])['bonus_points_together'] ?? 0) ?>
                         </div>
                     </div>
                     <div class="w-1/5 text-center text-gray-800 p-4">
@@ -79,7 +79,7 @@ if (count($matches) > 0):
                     <div class="w-2/5 text-center p-4 text-gray-800">
                         <h3 class="text-base md:text-lg lg:text-xl text-green-600 font-bold uppercase"><?= $match['away_club_name'] ?></h3>
                         <p class="text-sm md:text-base lg:text-lg font-bold uppercase text-gray-400"><?= $match['away_team_name'] ?></p>
-                        <?php if (!in_array($match['result'], ['A', 'C']) && !empty(get_innings($match, $match['away_team_id']))): ?>
+                        <?php if (!in_array($match['result'], ['A', 'C', 'CON']) && !empty(get_innings($match, $match['away_team_id']))): ?>
                             <p class="text-sm md:text-base my-4 text-gray-600">
                                 <strong><?= get_innings($match, $match['away_team_id'])['runs'] ?></strong> for
                                 <strong><?= get_innings($match, $match['away_team_id'])['wickets'] ?></strong> after
@@ -89,7 +89,7 @@ if (count($matches) > 0):
                         <div class="my-4 bg-white rounded-full h-12 w-12 font-bold text-lg flex items-center justify-center mx-auto text-white
                             <?= $match['result_applied_to'] === '' ? 'bg-gray-500' : ($match['result_applied_to'] == $match['away_team_id'] ? 'bg-green-600' : 'bg-red-600') ?>"
                         >
-                            <?= get_points($match, $match['away_team_id'])['game_points'] + get_points($match, $match['away_team_id'])['bonus_points_together'] ?>
+                            <?= (get_points($match, $match['away_team_id'])['game_points'] ?? 0) + (get_points($match, $match['away_team_id'])['bonus_points_together'] ?? 0) ?>
                         </div>
                     </div>
                     <div class="w-full my-2">
