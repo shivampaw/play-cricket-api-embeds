@@ -15,10 +15,6 @@ $matches = array_filter($data, function ($match) {
         return false;
     }
 
-    if ($match['competition_type'] == 'Friendly') {
-        return false;
-    }
-
     $date = $match['match_date'];
     if (!Carbon::createFromFormat('d/m/Y', $date)->addDay()->isFuture()) {
         return false;
@@ -48,7 +44,11 @@ if (count($matches) > 0):
     foreach ($matches as $match): ?>
         <div class="mb-2">
             <div class="p-2 bg-gray-200 text-center text-gray-600 font-bold w-full">
-                <?= $match['league_name']; ?> - <?= $match['competition_name']; ?>
+                <?php if ($match['competition_type'] == 'Friendly'): ?>
+                    Friendly
+                <?php else: ?>
+                    <?= $match['league_name']; ?> - <?= $match['competition_name']; ?>
+                <?php endif; ?>
             </div>
             <div class="bg-gray-100 w-full px-2 py-5">
                 <div class="flex items-center flex-wrap">
